@@ -285,6 +285,29 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
+# sum_fx(935068) = 8 + sum_fx(93506) 
+# sum_fx(93506) = 6 + sum_fx(9350)
+# sum_fx(9350) = 0 + sum_fx(935)
+# sum_fx(935) = 5 + sum_fx(93)
+# sum_fx(93) = 3 + sum_fx(9)
+# sum_fx(9) = 9 + sum_fx(0)
+
+# base: num == 0
+# recursive: last_digit + sum_fx(trunc_num)
+
+sum_fx <- function(num) {
+  if (num == 0) {
+    return(0)
+  } else {
+    last_digit <- num %% 10
+    trunc_num <- num %/% 10
+
+    return(last_digit + sum_fx(trunc_num))
+  }
+}
+
+sum_fx(935068)
+
 
 ```
 

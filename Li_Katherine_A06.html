@@ -3405,12 +3405,12 @@ $SO
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mat_rand</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,]  593   15   95   80   12
-[2,]   43  924  170  536 1647
-[3,]  638   14   18 1731 1571
-[4,]   75  765 1563 1044  496
-[5,] 1856  992   73   51  190
-[6,] 1844  890 1964 1098 1026</code></pre>
+[1,] 1895 1266 1315  847  972
+[2,]  483   22   64  989  392
+[3,] 1268   81 1487 1648   38
+[4,]  976   62   76  233   91
+[5,] 1499 1788   66   45  430
+[6,]  442 1514 1667   24  920</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mat_round <span class="ot">&lt;-</span> <span class="cf">function</span>(mat_val) {</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nchar</span>(mat_val) <span class="sc">==</span> <span class="dv">2</span>) {</span>
@@ -3426,12 +3426,12 @@ $SO
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>rounded_mat_rand</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,]  600   20  100   80   10
-[2,]   40  900  200  500 2000
-[3,]  600   10   20 2000 2000
-[4,]   80  800 2000 1000  500
-[5,] 2000 1000   70   50  200
-[6,] 2000  900 2000 1000 1000</code></pre>
+[1,] 2000 1000 1000  800 1000
+[2,]  500   20   60 1000  400
+[3,] 1000   80 1000 2000   40
+[4,] 1000   60   80  200   90
+[5,] 1000 2000   70   40  400
+[6,]  400 2000 2000   20  900</code></pre>
 </div>
 </div>
 </section>
@@ -3453,44 +3453,13 @@ $SO
 <p>Calculate the average temperature for each month across the whole data frame (using the data for all three states together).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>new_max_temps <span class="ot">&lt;-</span> max_temps[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>avg_max_temps <span class="ot">&lt;-</span> <span class="fu">lapply</span>(new_max_temps, mean)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>avg_max_temps <span class="ot">&lt;-</span> <span class="fu">apply</span>(new_max_temps, <span class="dv">2</span>, mean)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>avg_max_temps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$jan
-[1] 38.89206
-
-$feb
-[1] 41.93598
-
-$mar
-[1] 50.73148
-
-$apr
-[1] 61.35608
-
-$may
-[1] 71.26111
-
-$jun
-[1] 79.95503
-
-$jul
-[1] 84.1746
-
-$aug
-[1] 82.23571
-
-$sep
-[1] 75.92857
-
-$oct
-[1] 64.56296
-
-$nov
-[1] 51.49921
-
-$dec
-[1] 41.11508</code></pre>
+<pre><code>     jan      feb      mar      apr      may      jun      jul      aug 
+38.89206 41.93598 50.73148 61.35608 71.26111 79.95503 84.17460 82.23571 
+     sep      oct      nov      dec 
+75.92857 64.56296 51.49921 41.11508 </code></pre>
 </div>
 </div>
 </section>

@@ -224,7 +224,7 @@ Calculate the average temperature for each month across the whole data frame (us
 
 ```{r}
 new_max_temps <- max_temps[, -c(1, 2)]
-avg_max_temps <- lapply(new_max_temps, mean)
+avg_max_temps <- apply(new_max_temps, 2, mean)
 avg_max_temps
 
 
